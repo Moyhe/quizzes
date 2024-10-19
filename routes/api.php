@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizzesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -17,3 +18,7 @@ Route::controller(QuizzesController::class)->group(function () {
     Route::patch('/quizzes/{quiz}', 'update');
     Route::delete('/quizzes/{quiz}', 'destroy');
 });
+
+
+Route::get('questions', [QuestionController::class, 'index']);
+Route::apiResource('quizzes.questions', QuestionController::class);
