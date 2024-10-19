@@ -17,7 +17,7 @@ class QuizzesController extends Controller
      */
     public function index()
     {
-        return QuizzesResource::collection(Quizzes::paginate(10));
+        return QuizzesResource::collection(Quizzes::with('questions')->paginate(10));
     }
 
     /**
@@ -42,7 +42,7 @@ class QuizzesController extends Controller
     {
         $quizzes = Quizzes::query()->findOrFail($quiz);
 
-        return new QuizzesResource($quizzes);
+        return new QuizzesResource($quizzes->load('questions'));
     }
 
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnswerQuestionController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\QuizzesController;
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ Route::controller(QuizzesController::class)->group(function () {
     Route::delete('/quizzes/{quiz}', 'destroy');
 });
 
+Route::get('answers', [AnswerQuestionController::class, 'index']);
+Route::get('/quizzes/{quiz}/answers', [AnswerQuestionController::class, 'show']);
 
 Route::get('questions', [QuestionController::class, 'index']);
 Route::apiResource('quizzes.questions', QuestionController::class);
+
+// users
+Route::post('/quizzes/{quiz}/answers', [AnswerQuestionController::class, 'store']);
