@@ -25,6 +25,6 @@ class Question extends Model
      */
     public function answers(): HasMany
     {
-        return $this->hasMany(AnswerQuestion::class);
+        return $this->hasMany(AnswerQuestion::class)->chaperone();
     }
 }

@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\QuestionController;
+use App\Http\Controllers\Admin\QuizzesController;
 use App\Http\Controllers\AnswerQuestionController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\QuizzesController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

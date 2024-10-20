@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreQuizzesRequest;
 use App\Http\Requests\UpdateQuizzesRequest;
 use App\Http\Resources\QuizzesResource;
