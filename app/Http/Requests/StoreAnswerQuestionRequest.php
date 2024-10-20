@@ -22,9 +22,10 @@ class StoreAnswerQuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'answer' => ['required', 'string'],
-            'email' => ['email', 'required'],
-            'question_id' => ['required']
+            'answers' => ['required', 'array'],
+            'answers.*.question_id' => ['required', 'exists:questions,id'],
+            'answers.*.answer' => ['required', 'string'],
+            'email' => ['required', 'email'],
         ];
     }
 }

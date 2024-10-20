@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use App\Observers\QuizObserver;
+use Illuminate\Database\Eloquent\Attributes\ObservedBy;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+#[ObservedBy([QuizObserver::class])]
 class Quizzes extends Model
 {
     /**

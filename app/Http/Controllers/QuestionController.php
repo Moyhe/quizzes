@@ -30,11 +30,13 @@ class QuestionController extends Controller
 
         $data = $request->validated();
 
-        $questions = $quiz->questions()->create([
-            'question' => $data['question']
-        ]);
+        foreach ($data['question'] as $question) {
+            $quiz->questions()->create([
+                'question' => $question
+            ]);
+        }
 
-        return new QuestionsResource($questions);
+        return response()->json(['success' => 'question created successfullu']);
     }
 
     /**

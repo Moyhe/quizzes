@@ -7,14 +7,19 @@ use App\Http\Requests\UpdateAnswerQuestionRequest;
 use App\Http\Resources\AnswerQuestionResource;
 use App\Models\AnswerQuestion;
 use App\Models\Quizzes;
+use App\Quizzes\StoreAnswer;
+
 
 class AnswerQuestionController extends Controller
 {
+
+    public function __construct(protected StoreAnswer $storeAnswer) {}
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         return AnswerQuestionResource::collection(AnswerQuestion::query()->with(['questions', 'quizzes'])->paginate(10));
     }
 
@@ -23,29 +28,11 @@ class AnswerQuestionController extends Controller
      */
     public function store(StoreAnswerQuestionRequest $request, Quizzes $quiz)
     {
-        // Ensure guest only answers once
-
         $data = $request->validated();
 
-        $answer = AnswerQuestion::where([
-            ['quizzes_id', $quiz->id],
-            ['email', request('email')]
-        ])->first();
+        $this->storeAnswer->answer($data['answers'], $quiz->id, $data);
 
-
-        if ($answer?->exists()) {
-            return response()->json(['message' => 'You have already answered this quiz.'], 403);
-        }
-
-        // Store answer
-        $answer = AnswerQuestion::create([
-            'quizzes_id' => $quiz->id,
-            'question_id' => $data['question_id'],
-            'email' => $data['email'],
-            'answer' => $data['answer'],
-        ]);
-
-        return new AnswerQuestionResource($answer);
+        return response("", 201);
     }
 
     /**
