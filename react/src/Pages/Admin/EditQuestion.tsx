@@ -22,7 +22,7 @@ const EditQuestion = () => {
     const {
         register,
         handleSubmit,
-        reset,
+        setValue,
         formState: { errors },
     } = useForm<FormData>({
         resolver: zodResolver(quizSchema),
@@ -38,7 +38,7 @@ const EditQuestion = () => {
                 const question = data;
                 console.log("Question data:", question.data);
 
-                reset({ questions: question.data.questions });
+                setValue("questions", question.data.questions);
             })
             .catch((error: Error) => {
                 console.log("Error fetching question:", error.message);
