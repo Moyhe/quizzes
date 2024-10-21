@@ -16,9 +16,9 @@ class QuestionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Quizzes $quiz)
+    public function index()
     {
-        return QuestionsResource::collection($quiz->questions()->paginate(10));
+        return QuestionsResource::collection(Question::query()->paginate(10));
     }
 
     /**
@@ -30,9 +30,9 @@ class QuestionController extends Controller
 
         $data = $request->validated();
 
-        foreach ($data['question'] as $question) {
+        foreach ($data['questions'] as $question) {
             $quiz->questions()->create([
-                'question' => $question
+                'questions' => $question['question']
             ]);
         }
 

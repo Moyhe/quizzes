@@ -18,8 +18,7 @@ class QuizzesResource extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'slug' => $this->slug,
-            'created_at' => $this->created_at,
-            'questions' => QuestionsResource::collection($this->questions)
+            'created_at' => $this->created_at
         ];
     }
 }

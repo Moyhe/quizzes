@@ -16,7 +16,8 @@ class QuestionsResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'question' => $this->question,
+            'questions' => $this->questions,
+            'quizzes' => new QuizzesResource($this->quizzes),
             'created_at' => $this->created_at
         ];
     }

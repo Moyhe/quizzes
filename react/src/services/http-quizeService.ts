@@ -32,6 +32,6 @@ class HttpService {
     }
 }
 
-const create = (endpoint: string) => new HttpService(endpoint);
+const createQuiz = (endpoint: string) => new HttpService(endpoint);
 
-export default create;
+export default createQuiz;
