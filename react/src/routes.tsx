@@ -7,6 +7,8 @@ import AdminPage from "./Pages/Admin/AdminPage";
 import Quiz from "./Pages/Admin/Quiz";
 import AnswerQuestions from "./Pages/Admin/AnswerQuestions";
 import Question from "./Pages/Admin/Question";
+import CreateQuiz from "./Pages/Admin/CreateQuiz";
+import EditQuiz from "./Pages/Admin/EditQuiz";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +20,12 @@ const router = createBrowserRouter([
                 element: <Home />,
             },
             {
-                path: "/quiz-details/:id",
+                path: "quiz-create",
+                element: <CreateQuiz />,
+            },
+
+            {
+                path: "quiz-details/:id",
                 element: <QuizDetails />,
             },
 
@@ -28,6 +35,7 @@ const router = createBrowserRouter([
                 children: [
                     { index: true, element: <AdminPage /> },
                     { path: "quizzes/new", element: <Quiz /> },
+                    { path: "quizzes/edit/:id", element: <EditQuiz /> },
                     { path: "quizzes/question/:id", element: <Question /> },
                     {
                         path: "answer-questions/:id",
