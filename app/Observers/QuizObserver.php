@@ -2,6 +2,7 @@
 
 namespace App\Observers;
 
+use App\Models\Question;
 use App\Models\Quizzes;
 
 class QuizObserver
@@ -11,7 +12,7 @@ class QuizObserver
      */
     public function deleted(Quizzes $quiz): void
     {
-        $quiz->questions()->each(function ($question) {
+        $quiz->questions()->each(function (Question $question) {
             $question->answers()->delete();
             $question->delete();
         });

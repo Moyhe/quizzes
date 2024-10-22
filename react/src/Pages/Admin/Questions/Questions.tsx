@@ -39,8 +39,8 @@ const Questions = () => {
     return (
         <>
             {questions.length == 0 && (
-                <div className="flex justify-center items-center text-red-300">
-                    No Quizzes Listed yet
+                <div className="flex justify-center items-center text-red-700 mt-11">
+                    No Questions Listed yet
                 </div>
             )}
 

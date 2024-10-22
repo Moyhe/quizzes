@@ -19,4 +19,14 @@ class Quizzes extends Model
     {
         return $this->hasMany(Question::class)->chaperone();
     }
+
+    /**
+     * Get all of the answers for the Quizzes
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function answers(): HasMany
+    {
+        return $this->hasMany(AnswerQuestion::class)->chaperone();
+    }
 }

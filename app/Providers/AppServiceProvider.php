@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Quizzes;
+use App\Observers\QuizObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\ServiceProvider;
 

@@ -19,7 +19,7 @@ class QuizzesController extends Controller
      */
     public function index()
     {
-        return QuizzesResource::collection(Quizzes::with('questions')->paginate(10));
+        return QuizzesResource::collection(Quizzes::paginate(10));
     }
 
 

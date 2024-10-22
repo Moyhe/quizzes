@@ -19,7 +19,6 @@ class AnswerQuestionController extends Controller
      */
     public function index()
     {
-
         return AnswerQuestionResource::collection(AnswerQuestion::query()->with(['questions', 'quizzes'])->paginate(10));
     }
 
@@ -35,13 +34,8 @@ class AnswerQuestionController extends Controller
         return response("", 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Quizzes $quiz)
+    public function getUsersAnswers(Quizzes $quiz)
     {
-        $answer =  AnswerQuestion::where('quizzes_id', $quiz->id)->get();
-
-        return new AnswerQuestionResource($answer);
+        return AnswerQuestion::query()->where('quizzes_id', $quiz->id);
     }
 }

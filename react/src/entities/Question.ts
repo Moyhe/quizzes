@@ -1,3 +1,4 @@
+import { AnswersQuestions } from "./Answers";
 import Quiz from "./Quizzes";
 
 export default interface Question {
@@ -5,6 +6,7 @@ export default interface Question {
     questions: string;
     created_at: string;
     quizzes: Quiz;
+    answers: AnswersQuestions;
 }
 
 interface Links {

@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod"; // Import Zod for validation
 import { zodResolver } from "@hookform/resolvers/zod";
 import Question, { QuizQuestions } from "../entities/Question";
 import createQuestion from "../services/http-questionSerivce";
 import createAnswer from "../services/http-answerQuestion";
+import ErrorMessage from "../entities/ErrorMessage";
+import { AxiosError } from "axios";
 
 const Questions = () => {
     const { quizId } = useParams();
     const navigate = useNavigate();
+
+    const [error, setError] = useState<ErrorMessage>({} as ErrorMessage);
 
     const questionService = createQuestion(`/quizzes/${quizId}/questions`);
     const answerService = createAnswer(`/quizzes/${quizId}/answers`);
@@ -60,12 +64,22 @@ const Questions = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = (data: FieldValues) => {
         answerService
-            .create<FormData>(data)
+            .create<FieldValues>(data)
             .then(() => navigate("/"))
-            .catch((error: Error) => {
-                console.log(error.message);
+            .catch((error: AxiosError<ErrorMessage>) => {
+                const { response } = error;
+
+                if (response?.data.message && response.status == 500) {
+                    console.log(response.data.message);
+
+                    setError({ message: response.data.message });
+
+                    setTimeout(() => {
+                        setError({ message: "" });
+                    }, 2000);
+                }
             });
     };
 
@@ -75,7 +89,9 @@ const Questions = () => {
             <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
                 Quiz {quizId}
             </h2>
-
+            {error && (
+                <p className="text-red-600 text-center mb-3">{error.message}</p>
+            )}
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
                 <div>
                     <label

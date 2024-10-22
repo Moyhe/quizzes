@@ -3,6 +3,7 @@
 namespace App\Quizzes;
 
 use App\Models\AnswerQuestion;
+use App\QuizExceptions\QuizExecptionsError;
 use Exception;
 
 readonly class StoreAnswer
@@ -18,7 +19,7 @@ readonly class StoreAnswer
             ])->first();
 
             if ($answerQuestion) {
-                throw new Exception('you have already answer this quiz');
+                QuizExecptionsError::throw();
             }
 
             AnswerQuestion::create([

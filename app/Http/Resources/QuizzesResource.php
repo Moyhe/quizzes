@@ -19,7 +19,6 @@ class QuizzesResource extends JsonResource
             'title' => $this->title,
             'slug' => $this->slug,
             'created_at' => $this->created_at,
-
         ];
     }
 }
