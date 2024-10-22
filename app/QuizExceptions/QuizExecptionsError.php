@@ -10,7 +10,7 @@ class QuizExecptionsError extends Exception
 
     public static function throw()
     {
-        $instance = new static("you alreay answer this question", Response::HTTP_UNPROCESSABLE_ENTITY);
+        $instance = new static("you alreay answer this quiz", Response::HTTP_UNPROCESSABLE_ENTITY);
 
         throw $instance;
     }
