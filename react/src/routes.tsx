@@ -4,13 +4,13 @@ import Home from "./Pages/Home";
 import QuizDetails from "./Pages/QuizDetails";
 import AdminLayout from "./Pages/Admin/AdminLayout";
 import AdminPage from "./Pages/Admin/AdminPage";
-import AnswerQuestions from "./Pages/Admin/AnswerQuestions";
 import Question from "./Pages/Admin/CreateQuestion";
 import CreateQuiz from "./Pages/Admin/CreateQuiz";
 import EditQuiz from "./Pages/Admin/EditQuiz";
 import CreateQuestion from "./Pages/Admin/CreateQuestion";
 import Questions from "./Pages/Admin/Questions";
 import EditQuestion from "./Pages/Admin/EditQuestion";
+import Answers from "./Pages/Admin/Answers";
 
 const router = createBrowserRouter([
     {
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             },
 
             {
-                path: "quiz-details/:id",
+                path: "quizzes/:quizId",
                 element: <QuizDetails />,
             },
 
@@ -44,9 +44,10 @@ const router = createBrowserRouter([
                         path: "questions/edit/:quizId/:questionId",
                         element: <EditQuestion />,
                     },
+
                     {
-                        path: "answer-questions/:id",
-                        element: <AnswerQuestions />,
+                        path: "answers",
+                        element: <Answers />,
                     },
                 ],
             },

@@ -1,25 +1,25 @@
-// import axiosInstance from "./api-client";
+import axiosInstance from "./api-client";
 
-// export interface Entity {
-//     id?: number | undefined;
-// }
+export interface Entity {
+    id?: number | undefined;
+}
 
-// class HttpService {
-//     endpoint: string;
+class HttpService {
+    endpoint: string;
 
-//     constructor(endpoint: string) {
-//         this.endpoint = endpoint;
-//     }
+    constructor(endpoint: string) {
+        this.endpoint = endpoint;
+    }
 
-//     getAllAnswers<T>() {
-//         return axiosInstance.get<T>("/answers");
-//     }
+    getAnswers<T>() {
+        return axiosInstance.get<T>(this.endpoint);
+    }
 
-//     create<T>(entity: T) {
-//         return axiosInstance.post(this.endpoint, entity);
-//     }
-// }
+    create<T>(entity: T) {
+        return axiosInstance.post(this.endpoint, entity);
+    }
+}
 
-// const create = (endpoint: string) => new HttpService(endpoint);
+const createAnswer = (endpoint: string) => new HttpService(endpoint);
 
-// export default create;
+export default createAnswer;

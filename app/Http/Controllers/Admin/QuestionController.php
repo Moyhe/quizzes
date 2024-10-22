@@ -16,7 +16,12 @@ class QuestionController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Quizzes $quiz)
+    {
+        return QuestionsResource::collection($quiz->questions()->paginate(10));
+    }
+
+    public function AllQuestions()
     {
         return QuestionsResource::collection(Question::query()->paginate(10));
     }

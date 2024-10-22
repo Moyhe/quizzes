@@ -22,6 +22,7 @@ class QuizzesController extends Controller
         return QuizzesResource::collection(Quizzes::with('questions')->paginate(10));
     }
 
+
     /**
      * Store a newly created resource in storage.
      */

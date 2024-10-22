@@ -38,7 +38,7 @@ const AdminPage = () => {
     return (
         <>
             {quizzes.length == 0 && (
-                <div className="flex justify-center items-center text-red-300">
+                <div className="flex justify-center items-center text-red-700 mt-11">
                     No Quizzes Listed yet
                 </div>
             )}
@@ -46,6 +46,13 @@ const AdminPage = () => {
             <div className="flex justify-center items-center mt-28">
                 <div className="relative overflow-x-auto container mx-auto mt-20">
                     <div className="flex justify-between mb-3">
+                        <Link
+                            className="p-2 px-5 text-white bg-gray-600 rounded"
+                            to={"answers"}
+                        >
+                            All Answers
+                        </Link>
+
                         <Link
                             className="p-2 px-5 text-white bg-gray-600 rounded"
                             to={"Allquestions"}

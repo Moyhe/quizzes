@@ -24,7 +24,8 @@ Route::controller(QuizzesController::class)->group(function () {
 Route::get('answers', [AnswerQuestionController::class, 'index']);
 Route::get('/quizzes/{quiz}/answers', [AnswerQuestionController::class, 'show']);
 
-Route::get('questions', [QuestionController::class, 'index']);
+Route::get('questions', [QuestionController::class, 'AllQuestions']);
+
 Route::apiResource('quizzes.questions', QuestionController::class);
 
 // users

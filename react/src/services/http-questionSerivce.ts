@@ -16,6 +16,10 @@ class HttpService {
         return axiosInstance.get<T>(this.endpoint);
     }
 
+    getQuizQuestions<T>() {
+        return axiosInstance.get<T>(this.endpoint);
+    }
+
     getAllQuestions<T>() {
         return axiosInstance.get<T>(this.endpoint);
     }
