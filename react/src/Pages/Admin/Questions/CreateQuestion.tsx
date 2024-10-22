@@ -2,7 +2,7 @@ import { FieldValues, useForm, useFieldArray } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useNavigate, useParams } from "react-router";
-import createQuestion from "../../services/http-quizeService";
+import createQuestion from "../../../services/http-quizeService";
 
 const CreateQuestion = () => {
     const { id } = useParams();

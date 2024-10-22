@@ -39,7 +39,6 @@ const Home = () => {
                     >
                         <div className="flex flex-col justify-between h-full">
                             <div className="p-5">
-                                {/* Quiz title */}
                                 <h3 className="text-lg font-semibold text-gray-900 truncate">
                                     {quiz.title}
                                 </h3>

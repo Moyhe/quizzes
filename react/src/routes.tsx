@@ -3,13 +3,13 @@ import App from "./App";
 import Home from "./Pages/Home";
 import QuizDetails from "./Pages/QuizDetails";
 import AdminLayout from "./Pages/Admin/AdminLayout";
-import AdminPage from "./Pages/Admin/AdminPage";
-import Question from "./Pages/Admin/CreateQuestion";
-import CreateQuiz from "./Pages/Admin/CreateQuiz";
-import EditQuiz from "./Pages/Admin/EditQuiz";
-import CreateQuestion from "./Pages/Admin/CreateQuestion";
-import Questions from "./Pages/Admin/Questions";
-import EditQuestion from "./Pages/Admin/EditQuestion";
+import AdminPage from "./Pages/Admin/Quizzes/AdminPage";
+import Question from "./Pages/Admin/Questions/CreateQuestion";
+import CreateQuiz from "./Pages/Admin/Quizzes/CreateQuiz";
+import EditQuiz from "./Pages/Admin/Quizzes/EditQuiz";
+import CreateQuestion from "./Pages/Admin/Questions/CreateQuestion";
+import Questions from "./Pages/Admin/Questions/Questions";
+import EditQuestion from "./Pages/Admin/Questions/EditQuestion";
 import Answers from "./Pages/Admin/Answers";
 
 const router = createBrowserRouter([

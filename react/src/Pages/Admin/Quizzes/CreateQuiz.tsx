@@ -1,7 +1,7 @@
 import { FieldValues, useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import create from "../../services/http-quizeService";
+import create from "../../../services/http-quizeService";
 import { useNavigate } from "react-router";
 
 const CreateQuiz = () => {

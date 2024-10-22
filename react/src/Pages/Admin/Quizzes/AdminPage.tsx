@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Quiz, { Quizzes } from "../../entities/Quizzes";
+import Quiz, { Quizzes } from "../../../entities/Quizzes";
 import { Link } from "react-router-dom";
-import createQuiz from "../../services/http-quizeService";
+import createQuiz from "../../../services/http-quizeService";
 
 const AdminPage = () => {
     const QuizService = createQuiz("/quizzes");
@@ -66,7 +66,7 @@ const AdminPage = () => {
                             Add new Quiz
                         </Link>
                     </div>
-                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 table-auto">
                         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                             <tr>
                                 <th scope="col" className="px-6 py-3">

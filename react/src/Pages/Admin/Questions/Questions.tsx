@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Question, { QuizQuestions } from "../../entities/Question";
-import createQuestion from "../../services/http-questionSerivce";
+import Question, { QuizQuestions } from "../../../entities/Question";
+import createQuestion from "../../../services/http-questionSerivce";
 
 const Questions = () => {
     const QuestionService = createQuestion("/questions");
